@@ -9,7 +9,6 @@ class Maze(object):
 	def __init__(self, im):
 		width = im.width
 		height = im.height
-		# rawdata = iter(im.getdata(0))
 		data = list(im.getdata(0))
 		grid = [data[i*width:i*width+width] for i in range(height)]
 		del data
@@ -108,6 +107,3 @@ class Maze(object):
 	def add_node(self, x, y):
 		self.Nodes.append(Maze.Node(x,y))
 		# print('Size of Nodes: ', self.Nodes.__sizeof__())
-		
-
-

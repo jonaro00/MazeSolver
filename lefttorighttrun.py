@@ -24,11 +24,6 @@ def solve(maze):
 
 	path.append(current) # appends the final node (end)
 
-	# for node in path:
-	# 	for neigh in node.Neighbours:
-	# 		if neigh not in path:
-	# 			neigh = None
-
 	heading = 2
 	refined_path = []
 	current = maze.start

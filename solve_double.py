@@ -2,8 +2,6 @@ from PIL import Image # pip install Pillow
 import time
 from maze import Maze
 
-#from leftturn import solve
-#from lefttorighttrun import solve
 from leftturnonly import solve as solve1
 from rightturnonly import solve as solve2
 
@@ -31,11 +29,6 @@ def main():
 	result_length = len(result)
 	print("Path length:", result_length)
 
-	#print("Maze size", maze.__sizeof__())
-	#print("maze.nodes size", maze.Nodes.__sizeof__())
-	#print("All nodes size", sum(n.__sizeof__() for n in maze.Nodes), sum(n.Neighbours.__sizeof__() for n in maze.Nodes), sum(n.Position.__sizeof__() for n in maze.Nodes))
-	#print("Result size", result.__sizeof__())
-	#print("im size", im.__sizeof__())
 	maze.Nodes.clear() #del maze.Nodes[:]
 	del maze
 
@@ -79,15 +72,15 @@ def main():
 	result_length = len(result)
 	print("Path length:", result_length)
 
-	resultpath = [n.Position for n in result]
+	result = [n.Position for n in result]
 
 	im = im.convert('RGB')
 	impixels = im.load()
 	print("Saving image")
 
 	for i in range(result_length - 1):
-		a = resultpath[i]
-		b = resultpath[i+1]
+		a = result[i]
+		b = result[i+1]
 
 		r = int((i / result_length) * 255)
 		px = (0, 255, 255 - r)
